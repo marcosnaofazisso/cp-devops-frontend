@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import FormCliente from './FormCliente';
+import FormEndereco from './FormEndereco'
+
+import { useFetch } from './hooks/useFetch';
 
 function App() {
+
+  const [formCliente, setFormCliente] = useState(false)
+  const [formEndereco, setFormEndereco] = useState(false)
+
+  const url = ""
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>App Dim Dim</h1>
+      <h2>Logo</h2>
+      <div>
+        <button onClick={() => setFormCliente(!formCliente)}>Cadastrar Cliente</button>
+        {formCliente && (<FormCliente />)}
+        <button onClick={() => setFormEndereco(!formEndereco)}>Cadastrar Endereço</button>
+        {formEndereco && (<FormEndereco />)}
+      </div>
+      <div>
+        <button onClick={useFetch(url)}> Buscar clientes</button>
+        <button onClick={useFetch(url)}> Buscar endereços</button>
+      </div>
     </div>
   );
 }
