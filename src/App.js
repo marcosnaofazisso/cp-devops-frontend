@@ -3,14 +3,16 @@ import React, { useState } from 'react';
 import FormCliente from './FormCliente';
 import FormEndereco from './FormEndereco'
 
-import { useFetch } from './hooks/useFetch';
+import Clientes from './Clientes';
+import Enderecos from './Enderecos';
 
 function App() {
 
   const [formCliente, setFormCliente] = useState(false)
   const [formEndereco, setFormEndereco] = useState(false)
+  const [mostrarClientes, setMostrarClientes] = useState(false)
+  const [mostrarEnderecos, setMostrarEnderecos] = useState(false)
 
-  const url = ""
 
   return (
     <div className="App">
@@ -23,8 +25,10 @@ function App() {
         {formEndereco && (<FormEndereco />)}
       </div>
       <div>
-        <button onClick={useFetch(url)}> Buscar clientes</button>
-        <button onClick={useFetch(url)}> Buscar endereços</button>
+        <button onClick={() => setMostrarClientes(!mostrarClientes)}> Buscar clientes</button>
+        {mostrarClientes && (<Clientes />)}
+        <button onClick={() => setMostrarEnderecos(!mostrarEnderecos)}> Buscar endereços</button>
+        {mostrarEnderecos && (<Enderecos />)}
       </div>
     </div>
   );

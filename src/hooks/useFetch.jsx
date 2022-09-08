@@ -14,7 +14,7 @@ export function useFetch(url) {
         } catch (error) {
             console.log("Error: " + error)
         }
-        // console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
         var t1 = performance.now()
         console.log('Axios -> Time taken to execute:' + (t1 - t0) + ' milliseconds')
     }, [])
