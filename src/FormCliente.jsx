@@ -7,8 +7,17 @@ function FormCliente() {
         "nome": "",
         "email": "",
         "cpf": "",
-        "dataCadastro": "08/09/2022",
-        "endereco": [],
+        "dataCadastro": null,
+        "endereco":
+            [{
+                "cep": "",
+                "logradouro": "",
+                "numeroEndereco": "",
+                "cidade": "",
+                "bairro": "",
+                "estado": "",
+            }]
+        ,
     });
     const url = "http://localhost:8080/api/cliente"
 
@@ -30,12 +39,13 @@ function FormCliente() {
         e.preventDefault();
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({ cliente }),
+            body: JSON.stringify(cliente),
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
+            .then((res) => console.log("Status Code: ", res.status))
             .then((res) => console.log("RES =>", res.json()))
             .catch((err) => {
                 console.log(err.message);
