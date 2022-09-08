@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
+import logo from './assets/logo-dimdim.jpg'
+
 import FormCliente from './FormCliente';
 import FormEndereco from './FormEndereco'
 
@@ -17,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <h1>App Dim Dim</h1>
-      <h2>Logo</h2>
+      <img src={logo} alt="Logo DimDim" />
       <div>
         <button onClick={() => setFormCliente(!formCliente)}>Cadastrar Cliente</button>
         {formCliente && (<FormCliente />)}
