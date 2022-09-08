@@ -29,7 +29,7 @@ function Clientes() {
             {clientes?.map((cliente, index) => {
                 return (
                     <div key={index}>
-                        <h3>{cliente.nome}</h3>
+                        <h3>{index + 1}-{cliente.nome}</h3>
                         <p>{cliente.email}</p>
                         <p>{cliente.cpf}</p>
                     </div>

@@ -28,7 +28,7 @@ function Enderecos() {
             {enderecos?.map((endereco, index) => {
                 return (
                     <div key={index}>
-                        <h5>Rua {endereco.logradouro},{endereco.numeroEndereco}</h5>
+                        <h5>{index+1} - Rua {endereco.logradouro},{endereco.numeroEndereco}</h5>
                         <p>Bairro: {endereco.bairro}</p>
                         <p>{endereco.cidade} - {endereco.estado}</p>
                     </div>

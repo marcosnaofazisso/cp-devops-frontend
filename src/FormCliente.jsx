@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 function FormCliente() {
 
-    const [lista, setLista] = useState([])
     const [cliente, setCliente] = useState({
         "nome": "",
         "email": "",
