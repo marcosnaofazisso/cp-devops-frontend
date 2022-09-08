@@ -12,7 +12,6 @@ function Clientes() {
             try {
                 const response = await fetch(url);
                 const data = await response.json()
-                console.log(JSON.stringify(response));
                 setClientes(data);
                 console.log(JSON.stringify(data));
 
