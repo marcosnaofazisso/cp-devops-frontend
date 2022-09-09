@@ -37,9 +37,17 @@ function Clientes() {
             {clientes?.map((cliente) => {
                 return (
                     <div key={cliente.id}>
-                        <h3>{cliente.id}-{cliente.nome}</h3>
-                        <p>{cliente.email}</p>
-                        <p>{cliente.cpf}</p>
+                        <h3>{cliente.id} - {cliente.nome}</h3>
+                        <p><b>CPF: {cliente.cpf}</b></p>
+                        <p><b>Email: {cliente.email}</b></p>
+                        {cliente.endereco.map(endereco => {
+                            return (
+                                <div>
+                                    <p>{endereco.logradouro},{endereco.numeroEndereco} -
+                                        {endereco.bairro} ({endereco.cidade}/{endereco.estado}</p>
+                                </div>
+                            )
+                        })}
                         <button onClick={() => deletarCliente(cliente.id)}>Deletar</button>
                     </div>
                 )

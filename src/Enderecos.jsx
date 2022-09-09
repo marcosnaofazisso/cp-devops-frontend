@@ -28,9 +28,7 @@ function Enderecos() {
             {enderecos?.map((endereco) => {
                 return (
                     <div key={endereco.id}>
-                        <h3>{endereco.id} - {endereco.logradouro},{endereco.numeroEndereco} -
-                            Bairro: {endereco.bairro}
-                            {endereco.cidade} - {endereco.estado}
+                        <h3>{endereco.id} - {endereco.logradouro}, {endereco.numeroEndereco} - {endereco.bairro} ({endereco.cidade}/{endereco.estado})
                         </h3>
                     </div>
                 )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function FormCliente() {
+function FormCadastro() {
 
     const [mensagem, setMensagem] = useState(false)
     const [cliente, setCliente] = useState({
@@ -86,9 +86,9 @@ function FormCliente() {
                     <div>
                         <h1>Formulário de Cadastro</h1>
                         <h2>Dados Pessoais</h2>
-                        <h3>Nome: {cliente.nome}</h3>
+                        {/* <h3>Nome: {cliente.nome}</h3>
                         <h3>Email:{cliente.email}</h3>
-                        <h3>CPF: {cliente.cpf}</h3>
+                        <h3>CPF: {cliente.cpf}</h3> */}
                         <label>Nome</label>
                         <input type="text" value={cliente.nome} onChange={changeNome} required />
                         <br />
@@ -101,11 +101,11 @@ function FormCliente() {
                     </div>
                     <div>
                         <h2>Dados de Endereço</h2>
-                        <h3>Logradouro: {endereco.logradouro}</h3>
+                        {/* <h3>Logradouro: {endereco.logradouro}</h3>
                         <h3>Número: {endereco.numeroEndereco}</h3>
                         <h3>Cidade: {endereco.cidade}</h3>
                         <h3>Bairro:{endereco.bairro}</h3>
-                        <h3>CEP: {endereco.cep}</h3>
+                        <h3>CEP: {endereco.cep}</h3>  */}
                         <label>Logradouro</label>
                         <input type="text" value={endereco.logradouro} onChange={changeLogradouro} />
                         <br />
@@ -136,4 +136,4 @@ function FormCliente() {
     )
 }
 
-export default FormCliente;
+export default FormCadastro;
