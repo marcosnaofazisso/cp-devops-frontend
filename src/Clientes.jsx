@@ -42,7 +42,7 @@ function Clientes() {
                         <p><b>Email: {cliente.email}</b></p>
                         {cliente.endereco.map(endereco => {
                             return (
-                                <div>
+                                <div key={endereco.id}>
                                     <p>{endereco.logradouro},{endereco.numeroEndereco} -
                                         {endereco.bairro} ({endereco.cidade}/{endereco.estado}</p>
                                 </div>

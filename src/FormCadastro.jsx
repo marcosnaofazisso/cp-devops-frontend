@@ -10,30 +10,29 @@ function FormCadastro() {
         "cpf": "",
         "endereco": []
     });
-    const [endereco, setEndereco] = useState([{
+    const [endereco, setEndereco] = useState({
         "cep": "",
         "logradouro": "",
         "numeroEndereco": "",
         "cidade": "",
         "bairro": "",
         "estado": "",
-    }])
-    const [endereco2, setEndereco2] = useState([{
+    })
+    const [endereco2, setEndereco2] = useState({
         "cep": "",
         "logradouro": "",
         "numeroEndereco": "",
         "cidade": "",
         "bairro": "",
         "estado": "",
-    }])
+    })
 
     const url = "http://localhost:8080/api/cliente"
 
 
-
-    function handleChangeCliente(event) {
-        setCliente(cliente => ({ ...cliente, [event.target.name]: event.target.value }))
-    }
+        function handleChangeCliente(event) {
+            setCliente(cliente => ({ ...cliente, [event.target.name]: event.target.value }))
+        }
     function handleChangeEndereco(event) {
         setEndereco(endereco => ({ ...endereco, [event.target.name]: event.target.value }))
     }
@@ -63,14 +62,23 @@ function FormCadastro() {
                     "endereco": []
                 }))
             .then(
-                setEndereco([{
+                setEndereco({
                     "cep": "",
                     "logradouro": "",
                     "numeroEndereco": "",
                     "cidade": "",
                     "bairro": "",
                     "estado": "",
-                }]))
+                }))
+            .then(
+                setEndereco2({
+                    "cep": "",
+                    "logradouro": "",
+                    "numeroEndereco": "",
+                    "cidade": "",
+                    "bairro": "",
+                    "estado": "",
+                }))
             .catch((err) => { console.log(err.message) })
     }
 
@@ -98,12 +106,12 @@ function FormCadastro() {
                     </div>
                     <div>
                         <h2>Dados de Endereço</h2>
-                        <h3>Logradouro: {endereco.logradouro}</h3>
+                        {/* <h3>Logradouro: {endereco.logradouro}</h3>
                         <h3>Número: {endereco.numeroEndereco}</h3>
                         <h3>Bairro:{endereco.bairro}</h3>
                         <h3>Cidade: {endereco.cidade}</h3>
                         <h3>Estado: {endereco.estado}</h3>
-                        <h3>CEP: {endereco.cep}</h3>
+                        <h3>CEP: {endereco.cep}</h3> */}
                         <label>Logradouro</label>
                         <input type="text" name="logradouro" value={endereco.logradouro} onChange={handleChangeEndereco} />
                         <br />
@@ -154,7 +162,7 @@ function FormCadastro() {
                         <button onClick={() => setNovoEndereco(!novoEndereco)}>Cancelar</button>
                         <br />
                         <br />
-                        <button onClick={() => alert("São permitidos no máx 2 endereços!")}>Adicionar novo endereço</button>
+                        {/* <button onClick={() => alert("São permitidos no máx 2 endereços!")}>Adicionar novo endereço</button> */}
                     </div>
                 )}
 
