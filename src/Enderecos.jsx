@@ -12,7 +12,7 @@ function Enderecos() {
                 const response = await fetch(url);
                 const data = await response.json()
                 setEnderecos(data);
-                console.log(JSON.stringify(data));
+                // console.log(JSON.stringify(data));
 
             } catch (error) {
                 console.log("Error:", error)
@@ -25,12 +25,13 @@ function Enderecos() {
     return (
         <>
             <h1>Enderecos Cadastrados</h1>
-            {enderecos?.map((endereco, index) => {
+            {enderecos?.map((endereco) => {
                 return (
-                    <div key={index}>
-                        <h5>{index+1} - Rua {endereco.logradouro},{endereco.numeroEndereco}</h5>
-                        <p>Bairro: {endereco.bairro}</p>
-                        <p>{endereco.cidade} - {endereco.estado}</p>
+                    <div key={endereco.id}>
+                        <h3>{endereco.id} - {endereco.logradouro},{endereco.numeroEndereco} -
+                            Bairro: {endereco.bairro}
+                            {endereco.cidade} - {endereco.estado}
+                        </h3>
                     </div>
                 )
             })}

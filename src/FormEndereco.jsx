@@ -1,28 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function FormEndereco() {
+
+    const [endereco, setEndereco] = useState({
+        "rua": "",
+    })
+
+    const [cliente, setCliente] = useState({
+        "nome": "",
+        "endereco": []
+    })
+
+    function changeNome(event) {
+        setCliente(cliente => ({ ...cliente, nome: event.target.value }))
+    }
+    function changeEndereco(event) {
+        setEndereco(endereco => ({ ...endereco, rua: event.target.value }))
+    }
+    function enviarInfos() {
+        cliente.endereco.push(endereco)
+        // setCliente(cliente => ({ ...cliente, endereco: endereco }))
+        console.log("Cliente: ", cliente)
+        console.log("Endereco: ", endereco)
+    }
+
+
     return (
         <>
-            <h1>Form Endereço</h1>
-            <div>
-                <form>
-                    <label>Logradouro</label>
-                    <input type="text" />
-                    <label>Bairro</label>
-                    <input type="text" />
-                    <label>Cidade</label>
-                    <input type="text" />
-                    <label>UF:
-                        <select>
-                            <option value="SP">SP</option>
-                            <option value="RJ">RJ</option>
-                            <option value="ES">ES</option>
-                            <option value="SC">SC</option>
-                        </select>
-                    </label>
-                    <button>Cadastrar</button>
-                </form>
-            </div>
+            <h1>Teste</h1>
+            <h1>Nome: {cliente.nome}</h1>
+            <h1>Rua: {endereco.rua}</h1>
+            {/* <h1>Nome: {cliente.endereco.rua}</h1> */}
+
+            <label>Nome</label>
+            <input type="text" value={cliente.nome} onChange={changeNome} />
+            <br />
+            <label>Rua</label>
+            <input type="text" value={endereco.rua} onChange={changeEndereco} />
+            <br />
+            <button onClick={() => enviarInfos()}>Enviar informações</button>
+
         </>
     )
 }

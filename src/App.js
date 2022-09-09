@@ -15,7 +15,6 @@ function App() {
   const [mostrarClientes, setMostrarClientes] = useState(false)
   const [mostrarEnderecos, setMostrarEnderecos] = useState(false)
 
-
   return (
     <div className="App">
       <h1>App Dim Dim</h1>
@@ -23,12 +22,16 @@ function App() {
       <div>
         <button onClick={() => setFormCliente(!formCliente)}>Cadastrar Cliente</button>
         {formCliente && (<FormCliente />)}
-        <button onClick={() => setFormEndereco(!formEndereco)}>Cadastrar Endereço</button>
-        {formEndereco && (<FormEndereco />)}
+        {/* <button onClick={() => setFormEndereco(!formEndereco)}>Cadastrar Endereço</button> */}
+        {/* {formEndereco && (<FormEndereco />)} */}
       </div>
+      <br />
       <div>
         <button onClick={() => setMostrarClientes(!mostrarClientes)}> Buscar clientes</button>
         {mostrarClientes && (<Clientes />)}
+      </div>
+      <br />
+      <div>
         <button onClick={() => setMostrarEnderecos(!mostrarEnderecos)}> Buscar endereços</button>
         {mostrarEnderecos && (<Enderecos />)}
       </div>
