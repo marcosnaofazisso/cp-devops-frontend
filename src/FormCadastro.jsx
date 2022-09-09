@@ -27,12 +27,12 @@ function FormCadastro() {
         "estado": "",
     })
 
-    const url = "http://localhost:8080/api/cliente"
+    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
 
 
-        function handleChangeCliente(event) {
-            setCliente(cliente => ({ ...cliente, [event.target.name]: event.target.value }))
-        }
+    function handleChangeCliente(event) {
+        setCliente(cliente => ({ ...cliente, [event.target.name]: event.target.value }))
+    }
     function handleChangeEndereco(event) {
         setEndereco(endereco => ({ ...endereco, [event.target.name]: event.target.value }))
     }
