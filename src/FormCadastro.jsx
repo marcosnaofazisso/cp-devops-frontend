@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 function FormCadastro() {
 
     const [mensagem, setMensagem] = useState(false)
+    const [novoEndereco, setNovoEndereco] = useState(false)
     const [cliente, setCliente] = useState({
         "nome": "",
         "email": "",
@@ -10,6 +11,14 @@ function FormCadastro() {
         "endereco": []
     });
     const [endereco, setEndereco] = useState([{
+        "cep": "",
+        "logradouro": "",
+        "numeroEndereco": "",
+        "cidade": "",
+        "bairro": "",
+        "estado": "",
+    }])
+    const [endereco2, setEndereco2] = useState([{
         "cep": "",
         "logradouro": "",
         "numeroEndereco": "",
@@ -48,9 +57,33 @@ function FormCadastro() {
         setEndereco(endereco => ({ ...endereco, cep: event.target.value }))
     }
 
+
+
+
+
+    function changeLogradouro2(event) {
+        setEndereco2(endereco2 => ({ ...endereco2, logradouro: event.target.value }))
+    }
+    function changeNumeroLogradouro2(event) {
+        setEndereco(endereco2 => ({ ...endereco2, numeroEndereco: event.target.value }))
+    }
+    function changeBairro2(event) {
+        setEndereco2(endereco2 => ({ ...endereco2, bairro: event.target.value }))
+    }
+    function changeCidade2(event) {
+        setEndereco2(endereco2 => ({ ...endereco2, cidade: event.target.value }))
+    }
+    function changeEstado2(event) {
+        setEndereco2(endereco2 => ({ ...endereco2, estado: event.target.value }))
+    }
+    function changeCep2(event) {
+        setEndereco2(endereco2 => ({ ...endereco2, cep: event.target.value }))
+    }
+
     const handleSubmit = (e) => {
         cliente.endereco.push(endereco)
-        // console.log("DATA =>", JSON.stringify(cliente))
+        if (novoEndereco) { cliente.endereco.push(endereco2) }
+        console.log("DATA =>", JSON.stringify(cliente))
         e.preventDefault();
         fetch(url, {
             method: 'POST',
@@ -125,12 +158,42 @@ function FormCadastro() {
                         <input type="text" value={endereco.cep} onChange={changeCep} />
                     </div>
                     <br />
+                    <br />
                     <input type="submit" value="Enviar" />
                     <br />
                     <br />
-                    <h1>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h1>
-
                 </form>
+                {!novoEndereco && <button onClick={() => setNovoEndereco(!novoEndereco)}>Adicionar novo endereço</button>}
+                {novoEndereco && (
+                    <div>
+                        <h2>Endereço Adicional</h2>
+                        <label>Logradouro</label>
+                        <input type="text" value={endereco2.logradouro} onChange={changeLogradouro2} />
+                        <br />
+                        <label>Número</label>
+                        <input type="text" value={endereco2.numeroEndereco} onChange={changeNumeroLogradouro2} />
+                        <br />
+                        <label>Bairro</label>
+                        <input type="text" value={endereco2.bairro} onChange={changeBairro2} />
+                        <br />
+                        <label>Cidade</label>
+                        <input type="text" value={endereco2.cidade} onChange={changeCidade2} />
+                        <br />
+                        <label>Estado</label>
+                        <input type="text" value={endereco2.estado} onChange={changeEstado2} />
+                        <br />
+                        <label>CEP</label>
+                        <input type="text" value={endereco2.cep} onChange={changeCep2} />
+                        <br />
+                        <br />
+                        <button onClick={() => setNovoEndereco(!novoEndereco)}>Cancelar</button>
+                        <br />
+                        <br />
+                        <button onClick={() => alert("São permitidos no máx 2 endereços!")}>Adicionar novo endereço</button>
+                    </div>
+                )}
+
+                <h1>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h1>
             </div>
         </>
     )
