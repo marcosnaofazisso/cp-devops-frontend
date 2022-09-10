@@ -10,7 +10,7 @@ Criação de um pagina web para realizar a consulta dos  end points para a disci
 * [Marcos Maciel](https://github.com/Marcos26-tech) || RM: 88267
 
 # Demo
-<img src="./demo/demo.devops.gif" height="800" width="800">
+<img src="./demo/demo.devops.gif" height="500" width="1200">
 
 # Tutorial
 npm install
