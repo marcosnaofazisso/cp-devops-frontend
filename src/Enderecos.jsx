@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 function Enderecos() {
     const [enderecos, setEnderecos] = useState([]);
 
-    const url = "https://cp1dimdim.azurewebsites.net/api/endereco"
+    // const url = "https://cp1dimdim.azurewebsites.net/api/endereco"
+    const url = "http://localhost:8080/api/endereco"
 
     useEffect(() => {
         const getEnderecos = async () => {
