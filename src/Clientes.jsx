@@ -32,8 +32,7 @@ function Clientes() {
 
     const [clientes, setClientes] = useState([]);
 
-    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
-    const url ="http://localhost:8080/api/cliente"
+    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
 
     useEffect(() => {
         const getClientes = async () => {
