@@ -28,7 +28,7 @@ function FormEditarCliente(props) {
 
     if (props.match.path.toLowerCase().includes('editar')) {
         id = props.match.params.id
-        url = "https://cp1dimdim.azurewebsites.net/api/cliente" + id
+        url = "https://cp1dimdim.azurewebsites.net/api/cliente/" + id
     }
 
     useEffect(() => {
