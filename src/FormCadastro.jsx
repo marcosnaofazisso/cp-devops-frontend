@@ -10,6 +10,8 @@ const Input = styled.input`
     border:none;
     border-radius:0.7rem;
     background-color: green;
+    cursor:pointer;
+
 `
 
 const Form = styled.form`
@@ -53,7 +55,9 @@ function FormCadastro() {
         "estado": "",
     })
 
-    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    const url = "http://localhost:8080/api/cliente"
+
 
 
     function handleChangeCliente(event) {

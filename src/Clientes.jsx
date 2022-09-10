@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const BtnDeletar = styled.button`
     height:2rem !important;
     margin-bottom:1rem;
     background-color: red !important;
+    cursor:pointer;
 `
-const Div = styled.div`
+export const Div = styled.div`
     border:1px solid #888888;
     margin-right:1rem;
     margin-top:1rem;
-
 `
 
 function Clientes() {
 
     const [clientes, setClientes] = useState([]);
 
-    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    const url = "http://localhost:8080/api/cliente"
 
     useEffect(() => {
         const getClientes = async () => {
@@ -60,6 +62,7 @@ function Clientes() {
                                 </div>
                             )
                         })}
+                        <Link title="aa" to={`/editar/${cliente.id}`}>Editar</Link>
                         <BtnDeletar onClick={() => deletarCliente(cliente.id)}>Deletar</BtnDeletar>
                     </Div>
                 )
