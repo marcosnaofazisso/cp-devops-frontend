@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Div } from './Clientes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
