@@ -18,8 +18,7 @@ function Clientes() {
 
     const [clientes, setClientes] = useState([]);
 
-    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
-    const url = "http://localhost:8080/api/cliente"
+    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
 
     useEffect(() => {
         const getClientes = async () => {
@@ -62,7 +61,7 @@ function Clientes() {
                                 </div>
                             )
                         })}
-                        <Link title="aa" to={`/editar/${cliente.id}`}>Editar</Link>
+                        <Link title="Ir para Edição de Cliente" to={`/editar/${cliente.id}`}>Editar</Link>
                         <BtnDeletar onClick={() => deletarCliente(cliente.id)}>Deletar</BtnDeletar>
                     </Div>
                 )
