@@ -13,8 +13,8 @@ Criação de um pagina web para realizar a consulta dos  end points para a disci
 <img src="./demo/demo.devops.gif" height="500" width="1200">
 
 # Tutorial
-npm install
-npm install --save styled-components
+### npm install
+### npm install --save styled-components
 
 #Como rodar o projeto 
 npm start
