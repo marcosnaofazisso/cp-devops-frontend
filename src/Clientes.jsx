@@ -14,11 +14,26 @@ export const Div = styled.div`
     margin-top:1rem;
 `
 
+const ButtonEditar = styled.button`
+    height:2rem !important;
+    color: white;
+    margin-right:1rem;
+    margin-bottom:1rem;
+    background-color: #5642ef !important;
+    cursor:pointer;
+    a{
+        color: white;
+        text-decoration:none;
+    }
+
+`
+
 function Clientes() {
 
     const [clientes, setClientes] = useState([]);
 
-    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    const url ="http://localhost:8080/api/cliente"
 
     useEffect(() => {
         const getClientes = async () => {
@@ -61,7 +76,7 @@ function Clientes() {
                                 </div>
                             )
                         })}
-                        <Link title="Ir para Edição de Cliente" to={`/editar/${cliente.id}`}>Editar</Link>
+                        <ButtonEditar><Link title="Ir para Edição de Cliente" to={`/editar/${cliente.id}`}>Editar</Link></ButtonEditar>
                         <BtnDeletar onClick={() => deletarCliente(cliente.id)}>Deletar</BtnDeletar>
                     </Div>
                 )

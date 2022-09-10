@@ -1,6 +1,81 @@
 import React, { useState, useEffect } from 'react'
 import { Div } from './Clientes';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+
+
+const Container = styled.div`
+    max-width :50%;
+    min-height :110rem;
+    display: block;
+    text-align : center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:10px;
+    background-color:white;
+    box-shadow: 0px 2px 9px 4px #8F8D8D;
+    h1{
+    font-size:42px;
+    padding:25px;
+    font-weight: bold;
+    font-family:monospace;
+    }
+    label{
+        display: inline-block;
+        width: 90px;
+        font-size:16px
+    }
+    input{
+        margin-bottom:1rem;
+        padding-left:10px;
+        font-size:14px
+    }
+    
+`
+
+const DivBtn = styled.div`
+    display:flex;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:16px;
+    justify-content:space-around;
+    button {
+        width:10rem;
+        height:3rem;    
+        font-weight:bold;
+        color:white;
+        background-color:green;
+        border:none;
+        border-radius:0.7rem;
+        margin-left:5rem;
+        cursor: pointer;
+    }
+    a {
+        padding:1rem 3rem;
+        margin-right:5rem;
+        font-weight:bold;
+        color:white;
+        background-color:grey;
+        border:none;
+        border-radius:0.7rem;
+        text-decoration:none;
+        cursor: pointer;
+    }
+
+`
+
+
+
+
 
 function FormEditarCliente(props) {
 
@@ -24,11 +99,13 @@ function FormEditarCliente(props) {
     const [mensagem, setMensagem] = useState(false)
 
     let id = null;
-    var url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+
+    var url ="http://localhost:8080/api/cliente"
+    // var url = "https://cp1dimdim.azurewebsites.net/api/cliente"
 
     if (props.match.path.toLowerCase().includes('editar')) {
         id = props.match.params.id
-        url = "https://cp1dimdim.azurewebsites.net/api/cliente/" + id
+        url = "http://localhost:8080/api/cliente/" + id
     }
 
     useEffect(() => {
@@ -80,12 +157,9 @@ function FormEditarCliente(props) {
 
     return (
         <>
+            <Container> 
             <h1>Editar Cliente</h1>
-            <Div>
                 <h2>Dados Pessoais</h2>
-                <h3>{cliente.id} - {cliente.nome}</h3>
-                <p><b>CPF: {cliente.cpf}</b></p>
-                <p><b>Email: {cliente.email}</b></p>
                 <label>Nome</label>
                 <input type="text" name="nome" value={cliente.nome} onChange={handleChangeCliente} required />
                 <br />
@@ -97,7 +171,6 @@ function FormEditarCliente(props) {
                 <br />
                 {endereco &&
                     <div>
-                        <h3>{endereco.logradouro} , {endereco.numeroEndereco} - {endereco.bairro} - ({endereco.cidade} / {endereco.estado})</h3>
                         <h2>Dados de Endereço</h2>
                         <label>Logradouro</label>
                         <input type="text" name="logradouro" value={endereco.logradouro} onChange={handleChangeEndereco} />
@@ -119,7 +192,6 @@ function FormEditarCliente(props) {
                     </div>}
                 {endereco2.cep !== "" ? (
                     <div>
-                        <h3>{endereco2.logradouro} , {endereco2.numeroEndereco} - {endereco2.bairro} - ({endereco2.cidade} / {endereco2.estado})</h3>
                         <h2>Endereço Adicional</h2>
                         <label>Logradouro</label>
                         <input type="text" name="logradouro" value={endereco2.logradouro} onChange={handleChangeEndereco2} />
@@ -142,13 +214,16 @@ function FormEditarCliente(props) {
                 ) : ""}
                 <h1>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h1>
                 <br />
-                <button onClick={saveChanges}>Salvar Alterações</button>
-                <br />
-                <button onClick={handleUpdate}>Salvar</button>
-                <br />
-                <Link title="Voltar para Home" to={`/`}>Voltar</Link>
+                    <DivBtn>
+                        <button onClick={saveChanges}>Salvar Alterações</button>
+                        <br />
+                        <button onClick={handleUpdate}>Salvar</button>
+                        <br />
+                        <Link title="Voltar para Home" to={`/`}>Voltar</Link>
+                    </DivBtn>
 
-            </Div>
+            
+            </Container>
         </>
     )
 }

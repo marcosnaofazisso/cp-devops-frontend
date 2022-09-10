@@ -54,8 +54,7 @@ function Home() {
     background-color:orange;
     border:none;
     border-radius:0.7rem;
-  cursor: pointer;
-
+    cursor: pointer;
   }
  `
 

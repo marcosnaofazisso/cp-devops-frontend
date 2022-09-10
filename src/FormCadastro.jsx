@@ -22,8 +22,26 @@ const Form = styled.form`
     input{
         margin-bottom:1rem;
     }
+`
 
+const Div = styled.div`
+    label{
+        display: inline-block;
+        width: 90px;
+        font-size:16px
+    }
+    input{
+        margin-bottom:1rem;
+        padding-left:10px;
+        font-size:14px
+    }
+`
 
+const BtnDeletar = styled.button`
+    height:2rem !important;
+    margin-bottom:1rem;
+    background-color: red !important;
+    cursor:pointer;
 `
 
 
@@ -55,7 +73,8 @@ function FormCadastro() {
         "estado": "",
     })
 
-    const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    // const url = "https://cp1dimdim.azurewebsites.net/api/cliente"
+    const url ="http://localhost:8080/api/cliente"
     
 
     function handleChangeCliente(event) {
@@ -156,7 +175,7 @@ function FormCadastro() {
                 </Form>
                 {!novoEndereco && <button onClick={() => setNovoEndereco(!novoEndereco)}>Adicionar novo endereço</button>}
                 {novoEndereco && (
-                    <div>
+                    <Div>
                         <h2>Endereço Adicional</h2>
                         <label>Logradouro</label>
                         <input type="text" name="logradouro" value={endereco2.logradouro} onChange={handleChangeEndereco2} />
@@ -177,11 +196,11 @@ function FormCadastro() {
                         <input type="text" name="cep" value={endereco2.cep} onChange={handleChangeEndereco2} />
                         <br />
                         <br />
-                        <button onClick={() => setNovoEndereco(!novoEndereco)}>Cancelar</button>
+                        <BtnDeletar onClick={() => setNovoEndereco(!novoEndereco)}>Cancelar</BtnDeletar>
                         <br />
                         <br />
                         {/* <button onClick={() => alert("São permitidos no máx 2 endereços!")}>Adicionar novo endereço</button> */}
-                    </div>
+                    </Div>
                 )}
 
                 <h3>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h3>

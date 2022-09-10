@@ -16,8 +16,11 @@ Criação de um pagina web para realizar a consulta dos  end points para a disci
 ### npm install
 ### npm install --save styled-components
 
+### npm install react-router-dom@5
+
 # Como rodar o projeto 
 npm start
+
 
 ## Thank you!
 
