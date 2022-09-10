@@ -14,7 +14,9 @@ Criação de um pagina web para realizar a consulta dos  end points para a disci
 
 # Tutorial
 npm install
+npm install --save styled-components
 
+#Como rodar o projeto 
 npm start
 
 ## Thank you!

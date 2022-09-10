@@ -1,4 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+const BtnDeletar = styled.button`
+    height:2rem !important;
+    margin-bottom:1rem;
+    background-color: red !important;
+`
+const Div = styled.div`
+    border:1px solid #888888;
+    margin-right:1rem;
+    margin-top:1rem;
+
+`
 
 function Clientes() {
 
@@ -35,20 +48,20 @@ function Clientes() {
             <h1>Clientes Cadastrados</h1>
             {clientes?.map((cliente) => {
                 return (
-                    <div key={cliente.id}>
+                    <Div key={cliente.id}>
                         <h3>{cliente.id} - {cliente.nome}</h3>
                         <p><b>CPF: {cliente.cpf}</b></p>
                         <p><b>Email: {cliente.email}</b></p>
                         {cliente.endereco.map(endereco => {
                             return (
                                 <div key={endereco.id}>
-                                    <p>{endereco.logradouro},{endereco.numeroEndereco} -
-                                        {endereco.bairro} ({endereco.cidade}/{endereco.estado}</p>
+                                    <h3>{endereco.logradouro}, {endereco.numeroEndereco} -
+                                        {endereco.bairro} ({endereco.cidade}/{endereco.estado})</h3>
                                 </div>
                             )
                         })}
-                        <button onClick={() => deletarCliente(cliente.id)}>Deletar</button>
-                    </div>
+                        <BtnDeletar onClick={() => deletarCliente(cliente.id)}>Deletar</BtnDeletar>
+                    </Div>
                 )
             })}
         </>

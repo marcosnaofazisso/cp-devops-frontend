@@ -1,4 +1,30 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
+
+const Input = styled.input`
+    width:10rem;
+    height:2rem;
+    font-size:14px;
+    font-weight:bold;
+    color:white;
+    border:none;
+    border-radius:0.7rem;
+    background-color: green;
+`
+
+const Form = styled.form`
+    label{
+        display: inline-block;
+        width: 90px;
+    }
+    input{
+        margin-bottom:1rem;
+    }
+
+
+`
+
+
 
 function FormCadastro() {
 
@@ -83,17 +109,13 @@ function FormCadastro() {
     }
 
 
-
     return (
         <>
             <div>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <div>
                         <h1>Formulário de Cadastro</h1>
                         <h2>Dados Pessoais</h2>
-                        {/* <h3>Nome: {cliente.nome}</h3>
-                        <h3>Email:{cliente.email}</h3>
-                        <h3>CPF: {cliente.cpf}</h3> */}
                         <label>Nome</label>
                         <input type="text" name="nome" value={cliente.nome} onChange={handleChangeCliente} required />
                         <br />
@@ -106,12 +128,6 @@ function FormCadastro() {
                     </div>
                     <div>
                         <h2>Dados de Endereço</h2>
-                        {/* <h3>Logradouro: {endereco.logradouro}</h3>
-                        <h3>Número: {endereco.numeroEndereco}</h3>
-                        <h3>Bairro:{endereco.bairro}</h3>
-                        <h3>Cidade: {endereco.cidade}</h3>
-                        <h3>Estado: {endereco.estado}</h3>
-                        <h3>CEP: {endereco.cep}</h3> */}
                         <label>Logradouro</label>
                         <input type="text" name="logradouro" value={endereco.logradouro} onChange={handleChangeEndereco} />
                         <br />
@@ -132,10 +148,10 @@ function FormCadastro() {
                     </div>
                     <br />
                     <br />
-                    <input type="submit" value="Enviar" />
+                    <Input type="submit" value="Enviar" />
                     <br />
                     <br />
-                </form>
+                </Form>
                 {!novoEndereco && <button onClick={() => setNovoEndereco(!novoEndereco)}>Adicionar novo endereço</button>}
                 {novoEndereco && (
                     <div>
@@ -166,7 +182,7 @@ function FormCadastro() {
                     </div>
                 )}
 
-                <h1>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h1>
+                <h3>{mensagem ? 'Informações enviadas com sucesso!' : ''}</h3>
             </div>
         </>
     )
